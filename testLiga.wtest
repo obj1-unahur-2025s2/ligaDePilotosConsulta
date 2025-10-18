@@ -2,16 +2,25 @@ import ligaDePilotos.*
 
 describe "Grupo de test" {
 
-  test "test 1" {
-    assert.that(true)
+  test "El vortex no puede volver a usarse luego de que se utilizó 3 veces consecutivas sin cargar la batería." {
+    novaIshari.conducir(vortex)
+    novaIshari.conducir(vortex)
+    novaIshari.conducir(vortex)
+    assert.notThat(vortex.tieneBateria())
   }
 
-  test "test 2" {
-    assert.notThat(false)
+  test "Que en el modo intermedio un piloto obtiene 2 de experiencia al usar el Nebula ." {
+    nebula.cambiarModo(intermedio)
+    axelDraven.conducir(nebula)
+    assert.equals(2, axelDraven.experiencia())
   }
 
-  test "test 3" {
-    assert.equals(2,10.div(5))
+  test "Que Kael Varela puede al inicio conducir el quantum." {
+    assert.that(quantum.puedeUsarlo(kaelVarela))
+  }
+
+  test "Que Axel Draven solo puede hacer 5 pruebas con autos como máximo" {
+    assert.that(quantum.puedeUsarlo(kaelVarela))
   }
 
 }
